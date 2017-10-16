@@ -28,8 +28,7 @@ for row in peepz:
     name = row['name']
     age = row["age"]
     iD = row['id']
-    command = "INSERT INTO peepz VALUES( name , age, iD )"
-    c.execute(command)
+    c.execute("INSERT INTO peeps VALUES (?,?,?)",( name , age , iD ))
     
 #read courses.csv and put it into the table
 coursez = csv.DictReader(open("courses.csv"))
@@ -38,8 +37,7 @@ for row in coursez:
     code = row['code']
     mark = row['mark']
     iD = row['id']
-    command = "INSERT INTO coursez ( code , mark . iD )"
-    c.execute(command)
+    c.execute("INSERT INTO courses VALUES (?,?,?)",( code , mark, iD ))
 
 db.commit() #save changes
 db.close()  #close database
